@@ -1,27 +1,24 @@
-import { useState } from "react";
-import "./App.css";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "./components/ui/card";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
-      <div className="flex">
-        <button
-          className="bg-red-50"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          +
-        </button>
-        <button
-          className="bg-sky-50"
-          onClick={() => setCount((count) => count - 1)}
-        >
-          -
-        </button>
-        <p>{count}</p>
-      </div>
-    </>
+    <div className="container py-5">
+      <Card>
+        <CardHeader>
+          <CardTitle>Total Spent</CardTitle>
+          <CardDescription>Total amount you've spent</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <p>0</p>
+        </CardContent>
+      </Card>
+    </div>
   );
 }
 
