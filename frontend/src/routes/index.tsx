@@ -1,19 +1,20 @@
+import { createFileRoute } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 
-import api from "./lib/api";
+import api from "../lib/api";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "./components/ui/card";
+} from "../components/ui/card";
 
 const getExpenses = async () => {
   return api.expenses.$get().then((res) => res.json());
 };
 
-const App = () => {
+const Home = () => {
   const { data, error, isPending } = useQuery({
     queryKey: ["expenses"],
     queryFn: getExpenses,
@@ -36,4 +37,6 @@ const App = () => {
   );
 };
 
-export default App;
+export const Route = createFileRoute("/")({
+  component: Home,
+});
